@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230522 22:48:05.050" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\victo\.vscode\extensions\robocorp.robotframework-lsp-1.10.1\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<status status="PASS" starttime="20230522 22:48:05.094" endtime="20230522 22:48:10.289"/>
+</kw>
+<status status="PASS" starttime="20230522 22:48:05.093" endtime="20230522 22:48:10.290"/>
+</test>
+<status status="PASS" starttime="20230522 22:48:05.051" endtime="20230522 22:48:10.290"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230522 22:48:05.781" level="ERROR">Error in file 'c:\Users\victo\OneDrive\Documentos\python\desafio_prime\meu-robot-dois\in_memory_interpreter.robot' on line 2: Setting variable '&amp;{estados}' failed: Multiple errors:
+- Invalid dictionary variable item 'Create Dictionary'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AC'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ACRE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ALAGOAS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AP'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AMAPA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AM'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AMAZONAS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'BA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'BAHIA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'CE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'CEARA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'DF'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'DISTRITO FEDERAL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ES'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ESPIRITO SANTO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'GO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'GOIAS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MARANHAO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MT'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MATO GROSSO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MATO GROSSO DO SUL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MG'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MINAS GERAIS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PARA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PB'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PARAIBA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PR'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PARANA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PERNAMBUCO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PI'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PIAUI'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RJ'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RIO DE JANEIRO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RN'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RIO GRANDE DO NORTE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RIO GRANDE DO SUL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RONDONIA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RR'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RORAIMA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SC'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SANTA CATARINA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SP'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SAO PAULO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SERGIPE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'TO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'TOCANTINS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item ''. Items must use 'name=value' syntax or be dictionary variables themselves.</msg>
+<msg timestamp="20230522 22:48:05.781" level="ERROR">Error in file 'c:\Users\victo\OneDrive\Documentos\python\desafio_prime\meu-robot-dois\in_memory_interpreter.robot' on line 2: Setting variable '&amp;{estados}' failed: Multiple errors:
+- Invalid dictionary variable item 'Create Dictionary'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AC'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ACRE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ALAGOAS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AP'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AMAPA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AM'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'AMAZONAS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'BA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'BAHIA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'CE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'CEARA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'DF'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'DISTRITO FEDERAL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ES'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'ESPIRITO SANTO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'GO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'GOIAS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MARANHAO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MT'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MATO GROSSO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MATO GROSSO DO SUL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MG'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'MINAS GERAIS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PARA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PB'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PARAIBA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PR'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PARANA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PERNAMBUCO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PI'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'PIAUI'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RJ'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RIO DE JANEIRO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RN'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RIO GRANDE DO NORTE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RIO GRANDE DO SUL'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RONDONIA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RR'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'RORAIMA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SC'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SANTA CATARINA'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SP'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SAO PAULO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'SERGIPE'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'TO'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item 'TOCANTINS'. Items must use 'name=value' syntax or be dictionary variables themselves.
+- Invalid dictionary variable item ''. Items must use 'name=value' syntax or be dictionary variables themselves.</msg>
+</errors>
+</robot>
