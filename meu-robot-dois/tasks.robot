@@ -4,10 +4,12 @@ Library           RPA.Browser.Selenium    auto_close=${FALSE}
 Library           RPA.HTTP
 Library           RPA.Tables
 Library           String
+Library    XML
 
 
 
 *** Variables ***
+#${browser_name_global}
 &{dicionario_estados}    AC=ACRE    AL=ALAGOAS    AP=AMAPA    AM=AMAZONAS
     ...    BA=BAHIA    CE=CEARA    DF=DISTRITO FEDERAL    ES=ESPIRITO SANTO
     ...    GO=GOIAS    MA=MARANHAO    MT=MATO GROSSO    MS=MATO GROSSO DO SUL
@@ -17,19 +19,38 @@ Library           String
     ...    SP=SAO PAULO    SE=SERGIPE    TO=TOCANTINS 
 *** Tasks ***
 Complete the challenge
-    Open Available Browser    https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp
+    Open Available Browser    https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp    alias=BrowserPrincipal
+    Maximize Browser Window
+    
     Main loop
-    #${tabela} = Abertura de Arquivo CSV
-
+    
 
 
 *** Keywords ***
+Main loop
+   #[Arguments]    ${browser_name_global}
+    ${tabela} =  Abertura de Arquivo CSV    C:\\Users\\victo\\Downloads\\LOCALIDADES.csv
+    
+    ${num_linhas}    Evaluate    len($tabela)
+    FOR    ${linha}    IN RANGE     ${num_linhas}
+        ${uf}  RPA.Tables.Get table cell    ${tabela}    ${linha}    UF
+        ${municipio}    RPA.Tables.Get table cell    ${tabela}  ${linha}    MUNICIPIO
+        #${uf} ${dicionario_estados["${uf}"]}
+            # Remover acentos da palavra original
+    
+        ${municipio_uppercase}    Convert To Upper Case    ${municipio}
+        
+        # é interessante fazer um validador de palavras acentuadas, utilizando unidecode
+        Preenche Valores    ${dicionario_estados["${uf}"]}     ${municipio_uppercase}
+        Trabalha Tabela
+    END
 
 Abertura de Arquivo CSV
     # Definir o caminho para o arquivo CSV
     [Arguments]    ${caminho_do_arquivo}    
     # Ler o arquivo CSV usando a biblioteca RPA.Tables
-    ${tabela}  Read Table From CSV    ${caminho_do_arquivo}
+    ${tabela}  Read Table From CSV    ${caminho_do_arquivo}    encoding=utf-8
+
     RETURN  ${tabela}
 
 Preenche Valores
@@ -46,25 +67,38 @@ Preenche Valores
     Click Button    Pesquisar
 
     # uma boa pratica seria verificar se a consulta foi realizada com sucesso
-Captura tabela
-    #RPA.Browser.Selenium.
-Main loop
-   ${tabela} =  Abertura de Arquivo CSV    C:\\Users\\victo\\Downloads\\LOCALIDADES.csv
-    
-    ${num_linhas}    Evaluate    len($tabela)
-    FOR    ${linha}    IN RANGE     ${num_linhas}
-        ${uf}  RPA.Tables.Get table cell    ${tabela}    ${linha}    UF
-        ${municipio}    RPA.Tables.Get table cell    ${tabela}  ${linha}    MUNICIPIO
-        #${uf} ${dicionario_estados["${uf}"]}
-            # Remover acentos da palavra original
-    
-        ${municipio_uppercase}    Convert To Upper Case    ${municipio}
-        #${municipio_uppercase_semacentos} Remove acentos ${municipio_uppercase}
 
+Trabalha Tabela
+    
+    Wait Until Page Contains Element    xpath://table[@ng-table="tableParams"]
+    Sleep    2
+    #captura cabeçalho e corpo da tabela respectivamente
+    ${data_corpo}     get text    xpath://table[@ng-table="tableParams"]//tbody
+    ${data_cabecalho}    get text    xpath://table[@ng-table="tableParams"]//thead
 
+    #captura todos os hrefs da tabela para que eles sejam futuramente navegados
+    @{elementos}    Get Web Elements    xpath=//a[@title="Ficha estabelecimento"]
+    FOR    ${elemento}    IN    @{elementos}
+        ${href}    Get Element Attribute    ${elemento}    href
+        #abre para cada um dos itens
+        ${browser_name}    Open Available Browser    ${href}
+        Maximize Browser Window
+        Sleep    1
+        Wait Until Page Contains Element    xpath://a[@title="Imprimir ficha completa"]//span[@class="glyphicon glyphicon-print"]
+        Click Element    xpath://a[@title="Imprimir ficha completa"]//span[@class="glyphicon glyphicon-print"]
+        Sleep    1
+        Wait Until Page Contains Element    xpath://input[@ng-change="marcarTodos()" and @id="todos"]
+        Click Element    xpath://input[@ng-change="marcarTodos()" and @id="todos"]
         
-        Preenche Valores    ${dicionario_estados["${uf}"]}     ${municipio_uppercase}
+        Click Button    Imprimir
+        Sleep    10
+        Close Browser 
+        
+        
+        Switch Browser	    BrowserPrincipal
+        
 
     END
+    #captura href da tabela para que seja buscado itens dinamicamente 
 
 

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230524 00:32:31.149" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="c:\Users\victo\OneDrive\Documentos\python\desafio_prime\meu-robot-dois\tasks.robot">
+<test id="s1-t1" name="Complete the challenge" line="21">
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp</arg>
+<arg>alias=BrowserPrincipal</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230524 00:32:32.868" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230524 00:32:32.880" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<msg timestamp="20230524 00:32:34.079" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230524 00:32:34.080" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230524 00:32:34.080" level="INFO">Opening url 'https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp'</msg>
+<status status="PASS" starttime="20230524 00:32:32.865" endtime="20230524 00:32:35.204"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230524 00:32:35.205" endtime="20230524 00:32:35.325"/>
+</kw>
+<kw name="Main loop">
+<kw name="Abertura de Arquivo CSV">
+<var>${tabela}</var>
+<arg>C:\\Users\\victo\\Downloads\\LOCALIDADES.csv</arg>
+<kw name="Read table from CSV" library="RPA.Tables">
+<var>${tabela}</var>
+<arg>${caminho_do_arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Read a CSV file as a table.</doc>
+<msg timestamp="20230524 00:32:35.340" level="INFO">${tabela} = Table(columns=['UF', 'MUNICIPIO'], rows=5)</msg>
+<status status="PASS" starttime="20230524 00:32:35.329" endtime="20230524 00:32:35.340"/>
+</kw>
+<return>
+<value>${tabela}</value>
+<status status="PASS" starttime="20230524 00:32:35.341" endtime="20230524 00:32:35.341"/>
+</return>
+<msg timestamp="20230524 00:32:35.342" level="INFO">${tabela} = Table(columns=['UF', 'MUNICIPIO'], rows=5)</msg>
+<status status="PASS" starttime="20230524 00:32:35.327" endtime="20230524 00:32:35.343"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${num_linhas}</var>
+<arg>len($tabela)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230524 00:32:35.362" level="INFO">${num_linhas} = 5</msg>
+<status status="PASS" starttime="20230524 00:32:35.344" endtime="20230524 00:32:35.363"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${linha}</var>
+<value>${num_linhas}</value>
+<iter>
+<var name="${linha}">0</var>
+<kw name="Get Table Cell" library="RPA.Tables">
+<var>${uf}</var>
+<arg>${tabela}</arg>
+<arg>${linha}</arg>
+<arg>UF</arg>
+<doc>Get a cell value from a table.</doc>
+<msg timestamp="20230524 00:32:35.369" level="INFO">${uf} = BA</msg>
+<status status="PASS" starttime="20230524 00:32:35.367" endtime="20230524 00:32:35.370"/>
+</kw>
+<kw name="Get Table Cell" library="RPA.Tables">
+<var>${municipio}</var>
+<arg>${tabela}</arg>
+<arg>${linha}</arg>
+<arg>MUNICIPIO</arg>
+<doc>Get a cell value from a table.</doc>
+<msg timestamp="20230524 00:32:35.373" level="INFO">${municipio} = Salvador</msg>
+<status status="PASS" starttime="20230524 00:32:35.371" endtime="20230524 00:32:35.373"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${municipio_uppercase}</var>
+<arg>${municipio}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20230524 00:32:35.375" level="INFO">${municipio_uppercase} = SALVADOR</msg>
+<status status="PASS" starttime="20230524 00:32:35.374" endtime="20230524 00:32:35.376"/>
+</kw>
+<kw name="Preenche Valores">
+<arg>${dicionario_estados["${uf}"]}</arg>
+<arg>${municipio_uppercase}</arg>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>xpath=//select[@ng-model="Estado"]//option[text()='${uf}']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230524 00:32:35.381" endtime="20230524 00:32:35.408"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>xpath=//select[@ng-model="Estado"]//option[text()='${uf}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230524 00:32:35.410" level="INFO">Clicking element 'xpath=//select[@ng-model="Estado"]//option[text()='BAHIA']'.</msg>
+<status status="PASS" starttime="20230524 00:32:35.408" endtime="20230524 00:32:35.441"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>xpath=//select[@ng-model="Municipio"]//option[text()='${municipio}']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230524 00:32:35.441" endtime="20230524 00:32:35.683"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>xpath=//select[@ng-model="Municipio"]//option[text()='${municipio}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230524 00:32:35.685" level="INFO">Clicking element 'xpath=//select[@ng-model="Municipio"]//option[text()='SALVADOR']'.</msg>
+<status status="PASS" starttime="20230524 00:32:35.684" endtime="20230524 00:32:35.753"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>Pesquisar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230524 00:32:35.756" level="INFO">Clicking button 'Pesquisar'.</msg>
+<status status="PASS" starttime="20230524 00:32:35.754" endtime="20230524 00:32:35.817"/>
+</kw>
+<status status="PASS" starttime="20230524 00:32:35.376" endtime="20230524 00:32:35.818"/>
+</kw>
+<kw name="Trabalha Tabela">
+<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
+<arg>xpath://table[@ng-table="tableParams"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230524 00:32:35.821" endtime="20230524 00:32:35.832"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230524 00:32:37.836" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230524 00:32:35.833" endtime="20230524 00:32:37.836"/>
+</kw>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${data_corpo}</var>
+<arg>xpath://table[@ng-table="tableParams"]//tbody</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230524 00:32:37.886" level="INFO">${data_corpo} = BA SALVADOR 7064284 20 20 SERVICOS MEDICOS BA ENTIDADES EMPRESARIAIS E SIM
+BA SALVADOR 9077715 3D DENT ENTIDADES EMPRESARIAIS M NÃO
+BA SALVADOR 1084186 4BODY BARRA ENTIDADES EMPRESARIAIS M NÃO
+BA SALV...</msg>
+<status status="PASS" starttime="20230524 00:32:37.837" endtime="20230524 00:32:37.886"/>
+</kw>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${data_cabecalho}</var>
+<arg>xpath://table[@ng-table="tableParams"]//thead</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230524 00:32:37.914" level="INFO">${data_cabecalho} = UF
+Município
+CNES
+Nome Fantasia
+Natureza Jurídica(Grupo)
+Gestão
+Atende SUS
+DETALHES</msg>
+<status status="PASS" starttime="20230524 00:32:37.887" endtime="20230524 00:32:37.914"/>
+</kw>
+<kw name="Get WebElements" library="RPA.Browser.Selenium">
+<var>@{elementos}</var>
+<arg>xpath=//a[@title="Ficha estabelecimento"]</arg>
+<doc>
